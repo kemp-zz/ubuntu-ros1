@@ -31,5 +31,5 @@ jobs:
            context: .
            platforms: linux/amd64
            push: true
-           tags: docker.io/fskemp/ubuntu-ros1:latest
+           tags: fskemp/ubuntu:latest
             
