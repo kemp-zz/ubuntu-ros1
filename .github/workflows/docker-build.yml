@@ -33,11 +33,7 @@ jobs:
           registry: docker.io  
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - name: Cache Docker layers 
-        uses: actions/cache@v3
-        with:
-          path: /tmp/.buildx-cache
-          key: ${{ env.CACHE_KEY }}
+  
 
       - name: Build and Push
         uses: docker/build-push-action@v5
