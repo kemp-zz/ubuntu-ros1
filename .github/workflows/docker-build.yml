@@ -21,7 +21,6 @@ jobs:
       - name: Login to DockerHub
         uses: docker/login-action@v3
         with:
-    # 显式移除 ecr 参数，避免与 Docker Hub 冲突
          registry: https://index.docker.io/v2/
          username: ${{ secrets.DOCKERHUB_USERNAME }}
          password: ${{ secrets.DOCKERHUB_TOKEN }}         
@@ -32,6 +31,5 @@ jobs:
            context: .
            platforms: linux/amd64
            push: true
-           tags: |
-             docker.io/fskemp/ubuntu-ros1:latest
-             docker.io/fskemp/ubuntu-ros1:${{ github.sha }}
+           tags: docker.io/fskemp/ubuntu-ros1:latest
+            
