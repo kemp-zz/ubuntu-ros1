@@ -7,8 +7,7 @@ RUN ln -fs /usr/share/zoneinfo/$TZ /etc/localtime && \
     apt-get update && apt-get install -y tzdata && \
     dpkg-reconfigure --frontend noninteractive tzdata
 
-# 更换 Ubuntu 官方源为阿里云镜像加速
-RUN sed -i 's/archive.ubuntu.com/mirrors.aliyun.com/g' /etc/apt/sources.list
+
 
 # 安装基础工具链
 RUN apt-get update && apt-get install -y \
