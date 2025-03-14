@@ -29,9 +29,9 @@ jobs:
       - name: Build and Push
         uses: docker/build-push-action@v5
         with:
-         context: .
-         platforms: linux/amd64                        
-         push: true
-         tags: |
-          fskemp/ubuntu-ros1:latest
-          fskemp/ubuntu-ros1:${{ github.sha }}       
+           context: .
+           platforms: linux/amd64
+           push: true
+           tags: |
+             docker.io/fskemp/ubuntu-ros1:latest
+             docker.io/fskemp/ubuntu-ros1:${{ github.sha }}
