@@ -19,6 +19,8 @@ jobs:
         uses: actions/checkout@v4
 
 
+
+
       - name: Setup Buildx
         uses: docker/setup-buildx-action@v3
         with:
@@ -31,10 +33,11 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Prepare Cache Directory
-        run: |
-          mkdir -p /tmp/.buildx-cache
-          [ -d '/tmp/.buildx-cache' ] && echo "Cache dir ready" || echo "Cache dir creation failed"
+      - name: Cache Docker layers  # 新增缓存优化[1,6](@ref)
+        uses: actions/cache@v3
+        with:
+          path: /tmp/.buildx-cache
+          key: ${{ env.CACHE_KEY }}
 
       - name: Build and Push
         uses: docker/build-push-action@v5
