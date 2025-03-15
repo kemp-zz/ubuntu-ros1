@@ -8,7 +8,7 @@ on:
   workflow_dispatch:  # 保留手动触发（无需参数）
 
 env:
-  IMAGE_NAME: fskemp/ubuntu-ros1
+  IMAGE_NAME: fskemp/ubuntu
   CACHE_KEY: ${{ github.sha }}  # 唯一缓存键[1,6](@ref)
 
 jobs:
